@@ -1,0 +1,74 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px">
+
+<mat-card *ngIf="dress" fxFlex [@expand]>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{dress.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL + dress.image}}" alt={{dress.name}}>
+  <mat-card-content>
+    <p>{{dress.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
+<div [hidden]="dress || dressErrMess">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf='dressErrMess'>
+  <h2>Error</h2>
+  <h4>{{dressErrMess}}</h4>
+</div>
+
+<mat-card *ngIf="promotion" fxFlex [@expand]>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{promotion.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
+  <mat-card-content>
+    <p>{{promotion.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<div [hidden]="promotion || promoErrMess">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf='promoErrMess'>
+  <h2>Error</h2>
+  <h4>{{promoErrMess}}</h4>
+</div>
+
+
+<mat-card *ngIf="owner" fxFlex [@expand]>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{owner.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL+owner.image}}" alt={{owner.name}}>
+  <mat-card-content>
+    <p>{{owner.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
+<div [hidden]="owner || ownerErrMess">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf='ownerErrMess'>
+  <h2>Error</h2>
+  <h4>{{ownerErrMess}}</h4>
+</div>
+
+
+</div>
